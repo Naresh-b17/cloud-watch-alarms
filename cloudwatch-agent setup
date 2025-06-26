@@ -1,0 +1,61 @@
+ **CloudWatch Agent setup guide:
+
+
+# AWS CloudWatch Agent Setup Guide
+
+## Step 1: Create/Edit CloudWatch Agent Config File
+
+```bash
+vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
+````
+
+---
+
+## Step 2: Stop the CloudWatch Agent (If Running)
+
+```bash
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a stop
+```
+
+---
+
+## Step 3: Fetch Config and Start the CloudWatch Agent
+
+```bash
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+  -a fetch-config \
+  -m ec2 \
+  -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json \
+  -s
+```
+
+---
+
+## Step 4: Check CloudWatch Agent Status
+
+```bash
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
+```
+
+---
+
+## ✅ Notes
+
+* Ensure the EC2 instance has the correct **IAM Role** attached with CloudWatch write permissions.
+* Confirm the config file path is correct.
+* CloudWatch Agent logs (for debugging) are usually found at:
+
+```bash
+/opt/aws/amazon-cloudwatch-agent/logs/
+```
+
+```
+
+---
+
+✅ **You can save this directly as a `.md` file for your GitHub repo.**  
+File suggestion:  
+`cloudwatch-agent-setup-guide.md`
+
+If you want I can export it as a downloadable `.md` file too. Want me to?
+```
