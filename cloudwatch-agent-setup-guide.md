@@ -3,6 +3,8 @@
 
 ## Step 1: Create/Edit CloudWatch Agent Config File
 
+### Config file is in the same repo
+
 ```bash
 vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
 ```
