@@ -1,0 +1,65 @@
+{
+  "agent": {
+    "run_as_user": "root"
+  },
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/path/to/your/application/output.log",
+            "log_group_name": "Your-Log-Group-Name",
+            "log_stream_name": "output-log"
+          },
+          {
+            "file_path": "/path/to/your/application/error.log",
+            "log_group_name": "Your-Log-Group-Name",
+            "log_stream_name": "error-log"
+          }
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "metrics_collected": {
+      "cpu": {
+        "measurement": [
+          "cpu_usage_active"
+        ],
+        "totalcpu": true,
+        "resources": [
+          "*"
+        ],
+        "append_dimensions": {
+          "InstanceId": "${aws:InstanceId}"
+        }
+      },
+      "mem": {
+        "measurement": [
+          "mem_used_percent"
+        ],
+        "append_dimensions": {
+          "InstanceId": "${aws:InstanceId}"
+        }
+      },
+      "disk": {
+        "measurement": [
+          "disk_used_percent"
+        ],
+        "resources": [
+          "/"
+        ],
+        "append_dimensions": {
+          "InstanceId": "${aws:InstanceId}"
+        }
+      }
+    },
+    "append_dimensions": {
+      "InstanceId": "${aws:InstanceId}"
+    },
+    "aggregation_dimensions": [
+      ["InstanceId"]
+    ],
+    "namespace": "CWAgent"
+  }
+}
