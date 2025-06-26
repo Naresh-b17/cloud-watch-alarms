@@ -1,6 +1,4 @@
- **CloudWatch Agent setup guide:
-
-
+````
 # AWS CloudWatch Agent Setup Guide
 
 ## Step 1: Create/Edit CloudWatch Agent Config File
@@ -53,9 +51,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
 
 ---
 
-✅ **You can save this directly as a `.md` file for your GitHub repo.**  
-File suggestion:  
-`cloudwatch-agent-setup-guide.md`
+✅ Now you can copy-paste this whole block into a `.md` file in GitHub and the preview will work perfectly.  
 
-If you want I can export it as a downloadable `.md` file too. Want me to?
+Want me to generate and give you a ready-to-upload `.md` file?
 ```
